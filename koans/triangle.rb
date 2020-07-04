@@ -15,6 +15,12 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  if a <= 0 || b <= 0 || c <= 0
+    raise TriangleError, "Every side must be greater than 0"
+  elsif a + b <= c || a + c <= b || c + b <= a
+    raise TriangleError, "Invalid triangle, one side too long"
+  end
+
   if a == b && a == c
     :equilateral
   elsif a == b || a == c || b == c
